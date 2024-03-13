@@ -159,42 +159,42 @@ public:
 				guessCount++;
 	}
 	void Setup()
-	{
-		RandomWord();
-		do
-		{
-			system("cls");
-			PrintMessage("MADE BY SIDHARTH");
-			DrawHangman();
-			RemainingLetters();
-			PrintWord();
+{
+    RandomWord();
+    do
+    {
+        system("cls");
+        DrawHangman();
+        RemainingLetters();
+        PrintWord();
 
-			string ch;
-			cout << ">"; cin >> ch;
-			if (guessedWord.find(ch) == string::npos)
-			{
-				guessedWord += ch;
-				CountGuess(ch);
-			}
+        string ch;
+        cout << ">"; cin >> ch;
+        if (guessedWord.find(ch) == string::npos)
+        {
+            guessedWord += ch;
+            CountGuess(ch);
+        }
 
-			if (gameOver)
-				break;
+        if (gameOver)
+            break;
 
-			if (_kbhit())
-			{
-				char ch = _getch();
-				if (ch == '0')
-					break;
-			}
+        if (_kbhit())
+        {
+            char ch = _getch();
+            if (ch == '0')
+                break;
+        }
 
-		} while (guessCount < 10);
+    } while (guessCount < 10);
 
-		if (gameOver)
-			cout << "You Win" << endl;;
-		
-		cout << "WORD: " << wordToGuess << endl;
-		cout << "Game Over" << endl;;
-	}
+    if (gameOver)
+        cout << "You Win" << endl;;
+
+    cout << "WORD: " << wordToGuess << endl;
+    cout << "Game Over" << endl;;
+}
+
 };
 
 int main()
