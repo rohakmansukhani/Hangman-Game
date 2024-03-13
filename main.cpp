@@ -24,33 +24,37 @@ public:
 		wordToGuess = "";
 	}
 	void PrintMessage(string message, bool printTop = true, bool printBottom = true)
-	{
-		if (printTop)
-		{
-			cout << "+------------------------------------+" << endl;
-			cout << "|";
-		}
-		else
-			cout << "|";
-		bool flag = true;
-		for (int i = message.length(); i < 36; i++)
-		{
-			if (flag)
-				message = message + " ";
-			else if (!flag)
-				message = " " + message;
+{
+    if (printTop)
+    {
+        cout << "+------------------------------------+" << endl;
+        cout << "|";
+    }
+    else
+        cout << "|";
 
-			flag = !flag;
-		}
-		cout << message;
-		if (printBottom)
-		{
-			cout << "|" << endl;
-			cout << "+------------------------------------+" << endl;
-		}
-		else
-			cout << "|" << endl;
-	}
+    bool flag = true;
+    for (int i = message.length(); i < 36; i++)
+    {
+        if (flag)
+            message = message + " ";
+        else if (!flag)
+            message = " " + message;
+
+        flag = !flag;
+    }
+
+    cout << message;
+
+    if (printBottom)
+    {
+        cout << "|" << endl;
+        cout << "+------------------------------------+" << endl;
+    }
+    else
+        cout << "|" << endl;
+}
+
 	void DrawHangman()
 	{
 		if (guessCount >= 1)
